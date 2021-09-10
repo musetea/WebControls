@@ -1,0 +1,132 @@
+@import "def";
+@import "mixin";
+
+body {
+   background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+
+section.main{
+   width: 90%;
+   text-align: center;
+   transition: opacity 1s ease-in;
+   opacity: 0;
+   display: none;
+
+   h1{
+      font-size: 4rem;
+   }
+
+   p{
+      font-size: 2rem;
+      color: #333;
+      line-height: 1.6;
+   }
+   .btn {
+      @include AlinkButton(#fff, purple, 0.5rem)
+   }
+}
+
+
+section.loader {
+   .loder-container {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.8rem;
+      line-height: 1.6;
+      // background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+   
+      @include CenterFlex();
+      flex-direction: column;
+
+      padding: 4rem;
+
+      // CIRCLE LOADING
+      .circle-loader  {
+         height: 5rem;
+         transform-origin: bottom center;
+         animation: rotate 3s linear infinite;
+         @keyframes rotate {
+            to {
+               transform: rotate(360deg);
+            }
+         }
+         
+         
+         .circle {
+            display: inline-block;
+            background-color: purple;
+            height: 4rem;
+            width: 4rem;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: grow 1.5s linear infinite;
+            margin: -1rem;
+         }
+         @keyframes grow {
+            50% {
+               transform: scale(1)
+            }
+         }
+
+         .circle:nth-child(2){
+            background-color: palevioletred;
+            animation-delay: 0.75s;
+         }
+
+
+      }
+
+      .text-loader {
+         font-family: 'ZCOOL KuaiLe', cursive;
+         font-size: 4rem;
+         color: palevioletred;
+
+         &::after {
+            content: '\2026';
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+            animation: dots steps(4, end) 2s infinite;
+            width: 0;
+         }
+
+         @keyframes dots {
+            to {
+               width: 1.25em;
+            }
+         }
+      }
+
+      // SPAN LOADER
+      .span-loader {
+         @include CenterFlex();
+
+         span {
+            width: 0;//1.6rem;
+            height: 0; // 1.6rem
+            margin: 0 .8rem;
+            display: inline-block;
+            background-color: purple;
+
+            border-radius: 50%;
+            transform: translate3d(0);
+            animation: bounce 0.6s infinite alternate;
+         }
+         @keyframes bounce {
+            to {
+               width: 1.6rem;
+               height: 1.6rem;
+               transform: translate3d(0, -1rem, 0);
+            }
+         }
+         span:nth-child(2){
+            background-color: palevioletred;
+            animation-delay: 0.2s;
+         }
+         span:nth-child(3){
+            animation-delay: 0.4s;
+         }
+      }
+   
+   }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "webcontrols",
+  "version": "1.0.0",
+  "description": "html  &amp; css controls ..",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "tsc",
+    "dev": "nodemon --watch ./src --signal SIGHUP --delay 1 --exec ts-node src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musetea/WebControls.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/musetea/WebControls/issues"
+  },
+  "homepage": "https://github.com/musetea/WebControls#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.9.1",
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  }
+}
